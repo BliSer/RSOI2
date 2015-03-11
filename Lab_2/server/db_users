@@ -1,0 +1,31 @@
+<?xml version="1.0"?>
+<ArrayOfUser xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns:xsd="http://www.w3.org/2001/XMLSchema">
+  <User>
+    <name>Bli</name>
+    <password>Ser</password>
+    <email>1%402.3</email>
+    <phone>8916</phone>
+    <address>Moskwa</address>
+  </User>
+  <User>
+    <name>Andrey</name>
+    <password>pass</password>
+    <email>an%40drey.com</email>
+    <phone />
+    <address>Tver</address>
+  </User>
+  <User>
+    <name>Anna</name>
+    <password>12345</password>
+    <email>anna%40mail.ua</email>
+    <phone>8495</phone>
+    <address>Orel</address>
+  </User>
+  <User>
+    <name>Katya</name>
+    <password>019283</password>
+    <email>derp%40derp.derp</email>
+    <phone>5555555</phone>
+    <address>Moskwa</address>
+  </User>
+</ArrayOfUser>

@@ -1,0 +1,33 @@
+<?xml version="1.0"?>
+<ArrayOfPhoto xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns:xsd="http://www.w3.org/2001/XMLSchema">
+  <Photo>
+    <id>828426256</id>
+    <uploaded>16.02.2015</uploaded>
+    <owner>Bli</owner>
+  </Photo>
+  <Photo>
+    <id>1078148961</id>
+    <uploaded>28.02.2015</uploaded>
+    <owner>Andrey</owner>
+  </Photo>
+  <Photo>
+    <id>1644345925</id>
+    <uploaded>17.02.2015</uploaded>
+    <owner>Anna</owner>
+  </Photo>
+  <Photo>
+    <id>2028571183</id>
+    <uploaded>01.02.2015</uploaded>
+    <owner>Katya</owner>
+  </Photo>
+  <Photo>
+    <id>792110838</id>
+    <uploaded>17.02.2015</uploaded>
+    <owner>Anna</owner>
+  </Photo>
+  <Photo>
+    <id>1224748106</id>
+    <uploaded>21.02.2015</uploaded>
+    <owner>Katya</owner>
+  </Photo>
+</ArrayOfPhoto>
