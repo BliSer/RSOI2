@@ -159,7 +159,7 @@ namespace server
         }
 
         public static User login(HttpListenerRequest request)
-        {   return oauth.Login(request.Headers["access_token"]); 
+        {   return oauth.Login(request.Headers["Authorization"]);
         }
 
         public static string request_whoami(HttpListenerRequest request, HttpListenerResponse response)

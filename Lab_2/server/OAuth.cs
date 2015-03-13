@@ -39,7 +39,8 @@ namespace server
         }
 
         public Titem Login(string access_token)
-        {   return access_tokens.GetKeyByValue(access_token);
+        {   var token = access_token.Split(new char[] {' '});
+            return access_tokens.GetKeyByValue(token[1]);
         }
 
         public string GetToken(string code)
