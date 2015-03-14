@@ -17,7 +17,7 @@ namespace server
         Dictionary<Titem, string> authcodes = new Dictionary<Titem,string>();
         Dictionary<Titem, string> access_tokens = new Dictionary<Titem, string>();
         Dictionary<Titem, string> refresh_tokens = new Dictionary<Titem, string>();
-        const int expirationTime = 5 * 60;
+        const int expirationTime = 30 * 60;
         Random r = new Random();
         Dictionary<Titem, Timer> timers = new Dictionary<Titem, Timer>();
 

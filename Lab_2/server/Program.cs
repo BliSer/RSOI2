@@ -94,8 +94,22 @@ namespace server
                 case "/users/byplace":
                     return request_nearby_people(request, response);
                 default:
-                    {   if (request.Url.AbsolutePath.StartsWith("/photos/"))
-                            return request_list_photos(request, response, request.Url.AbsolutePath.Substring("/photos/".Length));
+                    {   if (request.Url.AbsolutePath.StartsWith("/photos"))
+                        {   if (request.QueryString.AllKeys.Contains("page"))
+                            {   int page = Convert.ToInt32(request.QueryString["page"]);
+                                int per_page = 5;
+                                int page_count = Convert.ToInt32(Math.Truncate(Convert.ToDouble(photos.Count/per_page)))+1;
+                                if (page == page_count)
+                                    return JsonConvert.SerializeObject(photos.GetRange((page_count-1)*per_page, photos.Count-((page_count-1)*per_page)));
+                                else
+                                    return JsonConvert.SerializeObject(photos.GetRange((page-1)*per_page, per_page));
+                            }
+                            else
+                                if (request.Url.AbsolutePath.Substring("/photos".Length) == "")
+                                    return JsonConvert.SerializeObject(photos.GetRange(0, photos.Count));
+                                else
+                                    return request_list_photos(request, response, request.Url.AbsolutePath.Substring("/photos/".Length));
+                        }
                         return page_Main;
                     }
             }
@@ -159,7 +173,7 @@ namespace server
         }
 
         public static User login(HttpListenerRequest request)
-        {   return oauth.Login(request.Headers["Authorization"]);
+        {   return oauth.Login(request.Headers["Authorization"]); 
         }
 
         public static string request_whoami(HttpListenerRequest request, HttpListenerResponse response)

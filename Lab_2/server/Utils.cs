@@ -31,7 +31,7 @@ namespace server
             byte[] buf = Encoding.UTF8.GetBytes(message);
             response.ContentLength64 = buf.Length;
             response.OutputStream.Write(buf, 0, buf.Length);
-            response.StatusCode = (int)code;
+            response.StatusCode = Convert.ToInt32(code);
             return "";
         }
     }
