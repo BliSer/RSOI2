@@ -102,11 +102,14 @@ namespace server
                                 if (page == page_count)
                                     return JsonConvert.SerializeObject(photos.GetRange((page_count-1)*per_page, photos.Count-((page_count-1)*per_page)));
                                 else
-                                    return JsonConvert.SerializeObject(photos.GetRange((page-1)*per_page, per_page));
+                                    return JsonConvert.SerializeObject(new {photos = photos.GetRange((page-1)*per_page, per_page),
+                                                                            page = page,
+                                                                            per_page = per_page,
+                                                                            page_count = page_count});
                             }
                             else
                                 if (request.Url.AbsolutePath.Substring("/photos".Length) == "")
-                                    return JsonConvert.SerializeObject(photos.GetRange(0, photos.Count));
+                                    return JsonConvert.SerializeObject(new {photos = photos.GetRange(0, photos.Count)});
                                 else
                                     return request_list_photos(request, response, request.Url.AbsolutePath.Substring("/photos/".Length));
                         }
@@ -190,8 +193,7 @@ namespace server
         }
 
         public static string request_users(HttpListenerRequest request, HttpListenerResponse response)
-        {   return JsonConvert.SerializeObject(
-                        users.Select(u => u.name));
+        {   return JsonConvert.SerializeObject(new {usernames = users.Select(u => u.name)});
         }
 
         private static string request_list_photos(HttpListenerRequest request, HttpListenerResponse response, string username)
@@ -218,10 +220,10 @@ namespace server
                 if (!request.QueryString.AllKeys.Contains("place"))
                     return response.SetError(HttpStatusCode.BadRequest, "Bad argument for request");
                 else
-                    return JsonConvert.SerializeObject(
-                        users
+                    return JsonConvert.SerializeObject(new {
+                        usernames = users
                           .Where(u => u.address.Contains(request.QueryString["place"]))
-                          .Select(u => u.name));
+                          .Select(u => u.name)});
         }
     }
 }

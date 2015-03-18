@@ -5,17 +5,18 @@ path		parameters							returns
 /authorize-submit	POST [username, pwd, redirect, state]				redirect to "redirect?code=123&state=123"
 /token		POST [client_id, client_secret, grant_type=authorization_code, code]	bearer JSON
 /token		POST [client_id, client_secret, grant_type=refresh_token, refresh_token]	bearer JSON
-/whoami		GET [headers:access_token]						bearer JSON
+/whoami		GET [headers:Authorization]						bearer JSON
 /users										user list
-/users/byplace	GET [place] [headers:access_token]					users in similar places
+/users/byplace	GET [place] [headers:Authorization]					users in similar places
 /photos		GET /name							photos of the user
+/photos		GET [page]							all photos by pages
 
 http://localhost/authorize?client_id=ot1elmv9hghhz8i
 client_id		ot1elmv9hghhz8i
 client_secret	ngt3y2kqxpc4pfm
 grant_type	authorization_code
 		refresh_token
-code		710653883
-refresh_token	1847574540
-access_token	1870846935
+code		
+refresh_token	
+access_token	
 http://localhost/users/byplace?place=Moskwa
